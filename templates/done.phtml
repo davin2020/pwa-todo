@@ -5,16 +5,19 @@
         <title>Implementing a PWA</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
         <link href='css/style.css' rel='stylesheet' type='text/css'>
-        <script defer src="js/app.js"></script>
     </head>
     <body>
-        <h1>Todo's</h1>
-        <div class="todos"></div>
-        <div class="add">
-            <input type="text" name="todo">
-            <button>Add</button>
+        <h1>Completed Todo's</h1>
+        <div class="todos">
+            <?php
+            foreach($done as $todo) {
+                if (!empty($todo[1])) {
+                    echo '<div class="todo">' . $todo[1] . '</div>';
+                }
+            }
+            ?>
         </div>
         <br><br>
-        <a href="/done">Done Todo's</a>
+        <a href="/">Back to Todo's</a>
     </body>
 </html>
