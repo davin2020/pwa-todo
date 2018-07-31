@@ -33,7 +33,7 @@ $app->post('/api/todo', function (Request $request, Response $response, array $a
 
     if (!empty($parsedBody['todo'])) {
         $date = date('Y-m-d H:i:s');
-        file_put_contents(TODO_FILE, $date . '|' . $parsedBody['todo'] . PHP_EOL, FILE_APPEND);
+        file_put_contents(TODO_FILE, PHP_EOL . $date . '|' . $parsedBody['todo'], FILE_APPEND);
         $data = ['success' => true, 'msg'=>'Todo Added'];
     }
 
@@ -52,7 +52,7 @@ $app->post('/api/todo', function (Request $request, Response $response, array $a
             }
         }
 
-        file_put_contents(DONE_FILE, $doneTodo . PHP_EOL, FILE_APPEND);
+        file_put_contents(DONE_FILE, PHP_EOL . $doneTodo, FILE_APPEND);
 
         $todoString = implode(PHP_EOL, $todos);
 
