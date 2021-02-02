@@ -1,4 +1,5 @@
-# Run application using built in PHP server
+# ToDo App created during PWA Workshop
+## Run application using built in PHP server
 
 After cloning this repo, run `php composer.phar install` to download the dependancies.
 
