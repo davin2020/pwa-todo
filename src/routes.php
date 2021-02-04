@@ -1,10 +1,8 @@
 <?php
-
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Routes
-
 DEFINE('TODO_FILE', 'todos/todo.txt');
 DEFINE('DONE_FILE', 'todos/done.txt');
 

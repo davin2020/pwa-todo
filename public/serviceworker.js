@@ -1,5 +1,6 @@
-//store stuff in cache, bg benefit of sw, so can work offline r without server
-//arrays o fiiles to cache
+// Created this new file for ServiceWorker as part of workshop
+//storing files in cache is big benefit of service-worker, so can work offline  without server
+//arrays of files to cache offline
 const filesToCache = [
     "http://localhost:8888/css/style.css",
     "http://localhost:8888/js/app.js",
@@ -16,21 +17,17 @@ const filesToCache = [
 //reqeust to index.php actually rreturns index.phtml page
 // files are cached based on their url, so  need to specify both so they are both cached
 
-let cacheVersion = 4;
-caches.delete('demo-0.0.' + --cacheVersion); //phpstorm complains as we're not doing anything with delete method
+let cacheVersion = 5;
+caches.delete('demo-0.0.' + --cacheVersion); //fyi phpstorm complains as we're not doing anything with delete method
 const cacheName = 'demo-0.0.' + cacheVersion;
 
 // const cacheName = 'demo' + '-0.0.4'; //could be let, but u cant change consts
 // can delete old caches here
 
-
-//lib for IndexDB
+//library for IndexDB
 importScripts('js/localforage.js');
 
-
-
-
-//self means sw & what code to run to dod the install
+//self means service-worker & what code to run to dod the install
 //code will  cache the files we want - waitUntil  only exists for SWs
 //cache.open - once u open a cache u cant change whats in it, this makes caches faster , but if u update ur css u cnat update it on users device 3 wks later - called cache invalidation - so add version numbers to cache name & increments each time u update the cache
 //cache api is pomised based
@@ -45,8 +42,8 @@ self.addEventListener('install', (event) => {
 })
 
 //now when a http request is  made, use the locally stored files, instead of still getting them from teh server
-//sw have respondWith function
-//sw is middleman between request and response
+//service-worker have respondWith function
+//service-worker is middleman between request and response
 // cache is quite smart, knows about urls so  can  match on request obj  nto just url of request
 self.addEventListener('fetch', (event) => {
     if (filesToCache.includes(event.request.url)) {
@@ -65,7 +62,7 @@ self.addEventListener('fetch', (event) => {
     }
 
     //if request is about getting json data from api
-    //sw support asyn awati syntaax so can use that
+    //service-worker support asyn await syntax so can use that
     if (
         event.request.url === 'http://localhost:8888/api/todo' &&
         event.request.method === 'GET'
@@ -74,7 +71,7 @@ self.addEventListener('fetch', (event) => {
             async function() {
                 // let response = await fetch(event.request);
 
-                //do someting if interntt is not avail to provide data ie get data from local index db
+                //do someting if internet is not available to provide data ie get data from local index db
                 let response = await fetch(event.request).catch(async function() {
                     const returnData = {success: true, msg:'', data: []}
                     await localforage.iterate((value, key) => {
@@ -86,7 +83,7 @@ self.addEventListener('fetch', (event) => {
                     });
                 })
 
-                let data = await response.clone().json(); //clone method is part of SW
+                let data = await response.clone().json(); //clone method is part of Service-worker
                 data.data.forEach((todo) => {
                     localforage.setItem(todo[0], todo[1]);
                 })
@@ -96,8 +93,8 @@ self.addEventListener('fetch', (event) => {
     }
 });
 
-//dont need net if everyting required to load page is cached locally
-// but for to do app, not everythig is avail,cant do fetch to load todos
-// if u cached the json respnse from api, u would haev to do list but it owudl never get updated - json is cachable file
+//dont need internet if everything required to load page is cached locally
+// but for To-Do app, not everything is avail, cant do fetch to load todos
+// if u cached the json response from api, u would have To-Do list but it would never get updated - json is cachable file
 //if u write todo in php it turns it into blue text
 // offline version is  a lttle lame but is still a PWA
