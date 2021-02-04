@@ -1,10 +1,8 @@
 <?php
-
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Routes
-
 DEFINE('TODO_FILE', 'todos/todo.txt');
 DEFINE('DONE_FILE', 'todos/done.txt');
 
@@ -13,7 +11,6 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 });
 
 $app->get('/done', function (Request $request, Response $response, array $args) {
-
     $todoString = file_get_contents(DONE_FILE);
     $tmp = explode(PHP_EOL, $todoString);
 
@@ -42,7 +39,6 @@ $app->post('/api/todo', function (Request $request, Response $response, array $a
         $tmp = explode(PHP_EOL, $todoString);
         $todos = [];
 
-
         foreach($tmp as $todo) {
             $todoArr = explode('|',$todo);
             if ($todoArr[0] == $parsedBody['done']) {
@@ -53,19 +49,14 @@ $app->post('/api/todo', function (Request $request, Response $response, array $a
         }
 
         file_put_contents(DONE_FILE, PHP_EOL . $doneTodo, FILE_APPEND);
-
         $todoString = implode(PHP_EOL, $todos);
-
         file_put_contents(TODO_FILE, $todoString);
-
         $data = ['success' => true, 'msg'=>'Todo Updated'];
     }
-
     return $response->withJson($data);
 });
 
 $app->get('/api/todo', function (Request $request, Response $response, array $args) {
-
     $todoString = file_get_contents(TODO_FILE);
     $tmp = explode(PHP_EOL, $todoString);
 
@@ -78,7 +69,6 @@ $app->get('/api/todo', function (Request $request, Response $response, array $ar
 });
 
 $app->get('/api/done', function (Request $request, Response $response, array $args) {
-
     $todoString = file_get_contents(DONE_FILE);
     $tmp = explode(PHP_EOL, $todoString);
 

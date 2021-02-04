@@ -9,6 +9,23 @@
         <script src="js/localforage.js"></script>
         <link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon">
         <link rel="icon" href="images/icons/favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="manifest.json">
+
+        <script>
+            // register the SW
+        if ('serviceWorker' in navigator) {
+            // navigator.serviceWorker.register('/serviceworker.js',{scope: './'})
+            navigator.serviceWorker.register('/serviceworker.js')
+            .then(function(registration) {
+                console.log('ServiceWorker Registration Successful')
+            }).catch(function(error) {
+                console.log('ServiceWorker Registration failed:', error)
+            });
+            } else {
+            console.log('ServiceWorker not supported')
+        }
+        </script>
+
     </head>
     <body>
         <h1>Todo's</h1>

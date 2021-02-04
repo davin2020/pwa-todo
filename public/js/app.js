@@ -1,4 +1,28 @@
 
+// const offLineMsg = document.querySelector('.offline');
+
+// this is not SW stuff but its handy to know for UX reasons ie helpful msgs for enduser
+const offlineMsg = document.querySelector('.offline');
+
+window.addEventListener('online', updateStatus);
+window.addEventListener('offline', updateStatus);
+//shoudl also do this ie checek for online/offlinestatus when page loads,
+document.addEventListener('DOMContentLoaded', updateStatus);
+
+function updateStatus() {
+    //disable Add button and check boxes if ur offline - can do this as stopgap
+    document.querySelector('button').disabled = !navigator.onLine;
+    document.querySelectorAll('.todo input').forEach(input => {
+        input.disabled = !navigator.onLine;
+    })
+
+    if (navigator.onLine === false) {
+        offlineMsg.innerHTML = 'You are currently offline.'
+    } else {
+        offlineMsg.innerHTML = '';
+    }
+}
+
 
 function loadTodos() {
     fetch('/api/todo').then(function (data) {
