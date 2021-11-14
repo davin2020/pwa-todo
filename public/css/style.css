@@ -1,11 +1,18 @@
 body {
     margin: 50px 0 0 0;
     padding: 0;
-    width: 100%;
+    /*width: 100%;*/
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
-    color: #aaa;
+    color: black;
+    /*color: #aaa;*/
     font-size: 18px;
+    /*images/blue_cats.jpg*/
+    
+    background: url(../images/blue_cats.jpg);
+    /*background-image: ../public/images/blue_cats.jpg;*/
+    /*background: url(../public/images/blue_cats.jpg) no-repeat center center fixed; */
+    /*background-size: cover;*/
 }
 
 h1 {
@@ -19,4 +26,13 @@ h1 {
 
 .offline {
     color: red;
+}
+
+.container_main {
+    opacity: 1;
+    /*border: 5px solid red;*/
+    width: 100%;
+    /*background: white;*/
+    background: rgba(255, 255, 255, 0.8);
+    margin: 10px;
 }
