@@ -1,11 +1,8 @@
-2018-07-13 13:48:36|get milk
+2018-07-13 13:48:36|buy cat toys
 2018-07-13 14:25:22|buy cat
-2018-07-13 14:26:26|buy catflap
-2018-07-13 14:27:11|install catflap
-2020-10-23 12:28:44|sdfsdf
-2020-10-23 13:04:31|fdsfadf
-2020-10-23 14:11:33|fgdfgf
-2020-10-23 14:11:43|ghjghhjhgj
-2020-10-23 15:04:17|hgfggh
-2020-10-23 15:14:09|fssdfdsf
-2020-10-23 15:14:46|gdfgg
+2018-07-13 14:26:26|buy cat flap
+2018-07-13 14:27:11|install cat flap
+2020-10-23 12:28:44|install cat
+2020-10-23 13:04:31|cat plays with box that cat flap came in
+2020-10-23 14:11:33|cat becomes best friends with box
+2021-11-13 23:19:57|realise the house is not cat proof
