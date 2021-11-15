@@ -48,3 +48,7 @@ h1 {
     margin: -25px 0 0 -25px; */
     /* Apply negative top and left margins to truly center the element */
 }
+
+.add {
+    margin: 10px 0;
+}
