@@ -25,17 +25,23 @@
 
     </head>
     <body>
-        <h1>Completed Todo's</h1>
-        <div class="todos">
-            <?php
-            foreach($done as $todo) {
-                if (!empty($todo[1])) {
-                    echo '<div class="todo">' . $todo[1] . '</div>';
-                }
-            }
-            ?>
+
+        <div class="container_main">
+            <h1>Completed Todo's</h1>
+                <div class="todos">
+                    <?php
+                    foreach($done as $todo) {
+                        if (!empty($todo[1])) {
+                            echo '<div class="todo">' . $todo[1] . '</div>';
+                        }
+                    }
+                    ?>
+                </div>
+                
+            <br><br>
+            <a href="/">Back to Todo's</a>
+
         </div>
-        <br><br>
-        <a href="/">Back to Todo's</a>
+
     </body>
 </html>
