@@ -4,19 +4,51 @@ body {
     width: 100%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
-    color: #aaa;
-    font-size: 18px;
+    color: black;
+    /*color: #aaa;*/
+    font-size: 20px;
+    background: url(../images/blue_cats.jpg);
+    /*background-image: ../public/images/blue_cats.jpg;*/
+    /*background: url(../public/images/blue_cats.jpg) no-repeat center center fixed; */
+    /*background-size: cover;*/
+    position: relative;
 }
 
+
 h1 {
-    color: #719e40;
-    letter-spacing: -3px;
+    /* blue bright 3199d6, light  b4b7b9  green 719e40 */
+    color: #3199d6;
+    /*letter-spacing: -3px;*/
     font-family: 'Lato', sans-serif;
-    font-size: 100px;
-    font-weight: 200;
-    margin-bottom: 0;
+    font-size: 80px;
+    /*font-weight: 400;*/
+    /*margin-bottom: 0;*/
+    margin: 10px 0;
 }
 
 .offline {
     color: red;
+}
+
+.todo {
+    padding: 5px 0;
+
+}
+.container_main {
+    /* to center within parent */
+    margin: 0 auto;
+    width: 70%;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+
+    /*center vertically */
+/*  position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px; */
+    /* Apply negative top and left margins to truly center the element */
+}
+
+.add {
+    margin: 10px 0;
 }

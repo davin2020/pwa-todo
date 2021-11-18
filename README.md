@@ -9,4 +9,4 @@ To run this application using the built in PHP server, `cd` into the root direct
 
 To run the tests, type  `composer test`
 
-![Image of ToDo App as PWA](pwa_todo.png)
+![Screenshot of cat-themed ToDo App as PWA](pwa_todo_cats_bkg.png)

@@ -1,6 +1,7 @@
 {
-  "name": "PWA Example",
-  "short_name": "PWA Example",
+  "name": "ToDo List as PWA",
+  "short_name": "ToDo PWA",
+  "description": "Cat themed To Do list",
   "theme_color": "#719e40",
   "background_color": "#ffffff",
   "display": "standalone",

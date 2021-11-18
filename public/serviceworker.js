@@ -1,6 +1,7 @@
 // Created this new file for ServiceWorker as part of workshop
 //storing files in cache is big benefit of service-worker, so can work offline  without server
 //arrays of files to cache offline
+
 const filesToCache = [
     "http://localhost:8888/css/style.css",
     "http://localhost:8888/js/app.js",
@@ -11,6 +12,7 @@ const filesToCache = [
     "http://localhost:8888/", //contains hmtl
     "http://localhost:8888/index.php", //contains same  html as above
     "http://localhost:8888/done"
+    "http://localhost:8888/images/blue_cats.jpg",
 ];
 //when u end up with 100s of files, t hen u have multiple caches
 //what u get back is html ,browser converts that into dom - sending index.pho returns the html content of the processed php page - both give the same resul but u have to list them  both & cache them   both
